@@ -18,7 +18,6 @@
             "prefix": "app",
             "styles": [
                 "assets/css/material.css",
-                //"../node_modules/videogular2/fonts/videogular.css",
                 "assets/css/style.css"
             ],
             "scripts": [

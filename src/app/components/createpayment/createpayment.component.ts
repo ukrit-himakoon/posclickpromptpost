@@ -39,8 +39,8 @@ export class CreatepaymentComponent implements OnInit {
     paymentdetail: any = {};
     sendedorder: any = {};
     ngOnInit() {
-                if(sessionStorage.getItem('cart')!=null&&sessionStorage.getItem('cartorder')!=null){
-            sessionStorage.removeItem('cart');
+                if(sessionStorage.getItem('cartorder')!=null){
+            //sessionStorage.removeItem('cart');
             sessionStorage.removeItem('cartorder');
             this.app.checkCartvalue();
             var listorder = JSON.parse(sessionStorage.getItem('cartcreateorder'));

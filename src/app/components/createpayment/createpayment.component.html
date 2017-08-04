@@ -12,7 +12,7 @@
                 </div>
                 <div class="mt-3 text-center">
                     <form ngNoForm name="payFormCcard" method='POST' action="https://demo2.2c2p.com/2C2PFrontEnd/RedirectV3/payment" #form>
-                        <input (click)="form.submit()" class="submit_button btn btn-primary" type="submit" value="Place Order">
+                        <!--<input (click)="form.submit()" class="submit_button btn btn-primary" type="submit" value="Place Order">-->
                         <input type="hidden" class="form-control" placeholder="Version" id="version" name="version" #version value="{{versionno}}">
                         <input type="hidden" class="form-control" placeholder="merchant_id" id="merchant_id" name="merchant_id" #merchant_id value="{{merchantid}}">
                         <input type="hidden" class="form-control" placeholder="payment_description" id="payment_description" name="payment_description" #payment_description value="{{paymentdescription}}">
