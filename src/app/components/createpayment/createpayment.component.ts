@@ -39,8 +39,25 @@ export class CreatepaymentComponent implements OnInit {
     paymentdetail: any = {};
     sendedorder: any = {};
     ngOnInit() {
-                if(sessionStorage.getItem('cartorder')!=null){
-            //sessionStorage.removeItem('cart');
+        if(sessionStorage.getItem('createorderresult')!=null){
+                this.paymentdetail = JSON.parse(sessionStorage.getItem('createorderresult'));
+                this.insertval();
+                console.log("refresh");
+            }
+            else{
+               var listorder = JSON.parse(sessionStorage.getItem('cartcreateorder'));
+                this.createorderService.list(listorder)
+                .then((data: any) => {
+                if (data.result == "SUCCESS") {
+                   this.sendedorder = data.data;
+                      sessionStorage.setItem('createorderresult',JSON.stringify(this.sendedorder));
+                      this.paymentdetail = this.sendedorder;
+                      this.insertval();
+                }
+            });
+            }
+        /*if(sessionStorage.getItem('cart')!=null&&sessionStorage.getItem('cartorder')!=null){
+            sessionStorage.removeItem('cart');
             sessionStorage.removeItem('cartorder');
             this.app.checkCartvalue();
             var listorder = JSON.parse(sessionStorage.getItem('cartcreateorder'));
@@ -63,7 +80,7 @@ export class CreatepaymentComponent implements OnInit {
             else{
                 //this.router.navigate(['/']);
             }
-        }
+        }*/
          //var hash = CryptoJS.HmacSHA1("poom", "zero");
          //var hash = CryptoJS.HmacSHA512("poom", "zero");
         //var hash=  CryptoJS.SHA1('message');
@@ -72,7 +89,7 @@ export class CreatepaymentComponent implements OnInit {
     }
     insertval(){
         this.versionno = "6.9";
-        this.merchantid ="xxxxxxxxxx";
+        this.merchantid ="xxx";
         //this.paymentdescription = "poom";
              this.paymentdescription = this.paymentdetail.customerName;
         //this.orderid ="00000000010000091224";
@@ -94,7 +111,7 @@ export class CreatepaymentComponent implements OnInit {
         this.userdefined5 = "";
 
         this.resulturl1 = "http://localhost:4931/Default";
-        this.resulturl2 = "xxxxx"
+        this.resulturl2 = "xxx"
         this.request3ds ="Y";
         this.hashvalue = this.hashingin(); 
 
@@ -154,5 +171,8 @@ export class CreatepaymentComponent implements OnInit {
     showop(){
        this.opshow=!this.opshow; 
     }
+    gotopay(){
+            this.router.navigate(['/payment']);
+    } 
 
 }
