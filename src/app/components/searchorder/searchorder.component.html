@@ -1,0 +1,48 @@
+<div class="container paper7">
+    <br/>
+    <div class="row">
+        <div class="col-sm-8"><h2>Customer order</h2></div>
+        <div class="col-sm-4"><button (click)=" openmerchant()" class="w3-button btn1 btn-md">Merchant</button></div>
+    </div>
+<div class="row">
+         <div class="col-sm-12">
+             <div class="paper4">
+                 <div class="paper">
+                    
+                    <p>ID: U00000067</p>
+                    <input class="form-control" #customerids (keyup.enter)="enterid(customerids.value)" ><br/><br/><br/>
+                    <button (click)="enterid(customerids.value)" class="w3-button btn1 btn-md">SEARCH</button>
+                    <br/>
+                    <br/>
+                    <br/>
+                 </div>
+            </div>
+         </div>
+</div>
+         <div class="row">
+             <div class="col-md-12 ">
+                <span *ngIf="ok">
+                    <h3>Search result</h3>
+                    <span *ngIf="numproduct > 0">
+                    <div class="paper4">
+                    <div *ngFor="let c of customerdata.masterOrders"  >
+                        <div class="menu-cat paper " (click)="getmoredetail(c)">
+                            <br/>
+                            <p>Id: {{c.masterOrderId}}</p>
+                            <p>No: {{c.masterOrderNo}}</p>
+                            <p>Status: {{c.status}}</p>
+                            <p>Price: {{c.masterOrderTotalAmount}}</p>
+                            <br/> 
+                        </div>   
+                    </div>
+                    </div>
+                    </span> 
+                    <div class="row">
+                        <div class="col-sm-4 "><button (click)=" openback()" class="w3-button btn1 btn-md">BACK</button></div>
+                        <div class="col-sm-4 "><a>page {{pagenow}}/{{totalpage}}</a></div>
+                        <div class="col-sm-4"><button (click)=" opennext()" class="w3-button btn1 btn-md">NEXT</button></div>
+                    </div>
+                </span> 
+             </div>    
+        </div>
+</div>

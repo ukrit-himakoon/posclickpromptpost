@@ -1,0 +1,379 @@
+body {
+    background-color: #f1f1f1;
+    overflow: hidden;
+}
+
+.flow-hidden {
+    overflow: hidden;
+}
+
+.bg-red {
+    background-color: #F44336;
+}
+
+.bg-blue {
+    background-color: #2196F3;
+}
+
+.bg-green {
+    background-color: #4CAF50;
+}
+
+.bg-orange {
+    background-color: #FF9800;
+}
+
+.bg-grey {
+    background-color: #9E9E9E;
+}
+
+.bg-black {
+    background-color: #000000;
+}
+
+.color-red {
+    color: #F44336;
+}
+
+.color-blue {
+    color: #2196F3;
+}
+
+.color-green {
+    color: #4CAF50;
+}
+
+.color-orange {
+    color: #FF9800;
+}
+
+.color-grey {
+    color: #9E9E9E;
+}
+
+.color-title {
+    color: #676767;
+}
+
+#wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+header {
+    height: 56px;
+    -webkit-box-shadow: 0 1px 5px rgba(20, 20, 20, .3);
+    box-shadow: 0 1px 5px rgba(20, 20, 20, .3);
+    z-index: 1;
+}
+
+main {
+    position: relative;
+    overflow-y: scroll;
+}
+
+.item-pic {
+    height: 180px;
+    width: 180px;
+    margin: 0 auto;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.shadow-border {
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    z-index: 1;
+}
+
+aside {
+    display: none;
+    width: 240px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background-color: #111;
+    overflow-y: auto;
+    z-index: 1000;
+    color: #fff;
+}
+
+aside.active {
+    display: block;
+}
+
+a {
+    cursor: pointer;
+}
+
+.v-center {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -moz-align-items: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.v-scroll {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.h-center {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.btn-icon {
+    display: block;
+    width: 56px;
+    height: 56px;
+}
+
+.flex,
+.flex-1 {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 0;
+}
+
+.flex-2 {
+    -webkit-box-flex: 2;
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+    width: 0;
+}
+
+.flex-3 {
+    -webkit-box-flex: 3;
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    width: 0;
+}
+
+.flex-4 {
+    -webkit-box-flex: 4;
+    -webkit-flex: 4;
+    -ms-flex: 4;
+    flex: 4;
+    width: 0;
+}
+
+.menu-cat {
+    font-size: 1rem;
+    display: block;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+a.menu-cat:hover,
+a.menu-cat.active,
+a.menu-cat:active {
+    background-color: #424242;
+}
+
+@media (max-width: 575px) {
+    header {
+        height: 56px;
+    }
+}
+
+.floatmenu {
+    z-index: 2;
+}
+
+.bigt {
+    font-size: 120%;
+}
+
+.paper {
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    z-index: 0;
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+    font-size: 120%;
+}
+
+.paper2 {
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    z-index: 1;
+    background-color: #000000;
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.paper3 {
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    z-index: 0;
+    background-color: #ffe066;
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.paper4 {
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    z-index: 0;
+    background-color: #e1e1d0;
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.paper5 {
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    z-index: 0;
+    background-color: #ff8566;
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.paper6 {
+    background-color: #8bd2da;
+}
+
+.paper7 {
+    background-color: #bfbfbf;
+}
+
+#content {
+    margin-top: 1.2rem;
+    margin-left: 0px;
+}
+
+@media (min-width: 960px) {
+    aside {
+        display: block;
+    }
+    #content {
+        margin-left: 240px;
+    }
+}
+
+.list-items {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    align-content: flex-end;
+}
+
+.list-item {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.hero {
+    background-color: #80ff80;
+    padding: 0 90px;
+}
+
+.herobg {
+    background: url('https://www.walldevil.com/wallpapers/a46/sayonara-zetsubou-sensei-tsunetsuki-matoi.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.herobg2 {
+    background: url('https://f.ptcdn.info/428/036/000/nw9dbj1an7XafenpnV8-o.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.colorherobg {
+    background-color: powderblue;
+    background-color: #ff6666;
+    background-color: #d9d9d9;
+}
+
+.heroadvertise {
+    background: url('https://www.walldevil.com/wallpapers/a46/sayonara-zetsubou-sensei-tsunetsuki-matoi.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    height: 200px;
+}
+
+.btn1 {
+    color: rgb(49, 46, 46);
+    background-color: #9E9E9E;
+    border-radius: 5px 5px 5px 5px;
+    font-size: 16px;
+}
+
+.btn1:not([disabled]):hover {
+    background-color: rgba(107, 103, 91, 0.96);
+    color: white;
+}
+
+.btn1[disabled] {
+    color: rgb(187, 187, 187);
+    background-color: rgba(230, 230, 229, 0.96);
+}
+
+.bwImg {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.p-relative {
+    position: relative !important;
+}
+
+.p-absolute {
+    position: absolute !important;
+}
+
+.cart-count {
+    right: 6px;
+    top: 6px;
+    background-color: #db4437;
+    width: 22px;
+    height: 22px;
+    border: solid 2px #fff;
+    line-height: 20px;
+    text-align: center;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+}
+
+.page-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.table>tbody:first-child>tr:first-child td,
+.table>tbody:first-child>tr:first-child th,
+.table>tfoot:first-child>tr:first-child td,
+.table>tfoot:first-child>tr:first-child th,
+.table>thead:first-child>tr:first-child td,
+.table>thead:first-child>tr:first-child th {
+    font-weight: bold;
+    color: #333;
+    height: auto;
+}

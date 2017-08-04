@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="bg-light-4 shadow-border p-3">
+                <div class="row  ">
+                    <div class="col-md-6">
+                        <a [href]="addpic()" target="_blank">
+                            <img class="img-fluid" [src]="addpic()" />
+                        </a>
+                    </div>
+                    <div class="col-md-6 ">
+                        <h2 class="mt-2 mb-3">{{product?.name}}</h2>
+                        <h3 class="mb-5" class="color-red">{{product?.defaultPrice | number: '1.2-2'}}฿</h3>
+                        <div>Description:</div>
+                        <p class="mb-4">{{product?.description}}</p>
+                        <div class="d-flex flex-row mb-3 v-center">
+                            <div class="pr-3">Qty:</div>
+                            <button (click)="decreaseproduct()" type="button">-</button>
+                            <div class="pl-3 pr-3">{{quantity}}</div>
+                            <button (click)="increaseproduct()" type="button">+</button>
+                        </div>
+                        <button type="button" (click)="addproduct()" class="btn btn-secondary">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <!--  <iframe src="http://27.254.138.113:8112/FilmandEntertainment/11111111000000001111000000003815"></iframe>
+    <iframe src="http://27.254.138.113:8114/VODS/1014_0050000011.m3u8?Fsv_filetype=1&Fsv_cid=1014&Fsv_FirstSegID=50000011&Provider_id=FilmandEntertainment&Pcontent_id=11111111000000001111000000003815&Fsv_CMSID=FilmandEntertainment&Fsv_otype=0&FvSeid=58108a2a475cabd3&UserID=&AuthInfo=&version="></iframe>
+    <video width="352" height="198" controls>
+        <source src="http://27.254.138.113:8112/FilmandEntertainment/11111111000000001111000000003815" type="application/x-mpegURL">
+    </video>
+    <video width="352" height="198" controls>
+        <source src="http://27.254.138.113:8114/VODS/1014_0050000011.m3u8?Fsv_filetype=1&Fsv_cid=1014&Fsv_FirstSegID=50000011&Provider_id=FilmandEntertainment&Pcontent_id=11111111000000001111000000003815&Fsv_CMSID=FilmandEntertainment&Fsv_otype=0&FvSeid=58108a2a475cabd3&UserID=&AuthInfo=&version=
+" type="application/x-mpegURL">
+    </video>
+
+    <iframe src="http://27.254.138.113:8114/VODS/1014_0030000011.m3u8?Fsv_filetype=1&Fsv_cid=1014&Fsv_FirstSegID=30000011&Provider_id=FilmandEntertainment&Pcontent_id=11111111000000001111000000003815&Fsv_CMSID=FilmandEntertainment&Fsv_otype=0&FvSeid=5810b7c6d0794bf3&UserID=&AuthInfo=&version=&_fwobw=1000000&_fwtbw=600000"></iframe>
+    <video width="352" height="198" controls>
+        <source src="http://27.254.138.113:8114/VODS/1014_0030000011.m3u8?Fsv_filetype=1&Fsv_cid=1014&Fsv_FirstSegID=30000011&Provider_id=FilmandEntertainment&Pcontent_id=11111111000000001111000000003815&Fsv_CMSID=FilmandEntertainment&Fsv_otype=0&FvSeid=5810b7c6d0794bf3&UserID=&AuthInfo=&version=&_fwobw=1000000&_fwtbw=600000" type="application/x-mpegURL">
+    </video>-->
+</div>

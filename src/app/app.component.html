@@ -1,0 +1,28 @@
+<div id="wrapper" class="d-flex flex-column">
+    <header class="d-flex flex-row bg-light-4 v-center">
+        <a id="btn-menu" (click)="menu()" class="d-flex v-center h-center btn-icon hidden-md-up">
+            <i class="color-title material-icons">menu</i>
+        </a>
+        <div class="flex text-center">
+            <img style="height: 48px" src="assets/images/logo.png" />
+        </div>
+        <a (click)="gotocart()" class="d-flex v-center h-center btn-icon p-relative">
+            <i class="material-icons color-title">shopping_cart</i>
+            <span class="p-absolute cart-count">{{cartvalue}}</span>
+        </a>
+    </header>
+    <main class="d-flex flex flex-row p-relative w-100 flow-hidden">
+        <aside [ngClass]="(isMenu)? 'active': ''">
+            <!-- <a class="menu-cat floatmenu">
+                <h3 class=" w3-hover-gray" (click)="backtohome()">Home</h3>
+            </a> -->
+            <a (click)="selectCatagory()" class="menu-cat p-3">ทั้งหมด</a>
+            <a *ngFor="let c of categories" (click)="selectCatagory(c.code)" class="menu-cat p-3">{{c.name}}</a>
+        </aside>
+        <div class="flex v-scroll">
+            <div id="content" class="container-fluid">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </main>
+</div>

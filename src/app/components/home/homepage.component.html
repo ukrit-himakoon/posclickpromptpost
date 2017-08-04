@@ -1,0 +1,111 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div *ngIf="viewtable">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h2>Product</h2>
+                    </div>
+                    <div class="col-sm-4 offset-sm-4"><button (click)="changeview()" class="w3-button btn1 btn-md"><i class="material-icons">view_list</i></button></div>
+                </div>
+                <div *ngIf="this.products.length > 0">
+                    <div class="paper4">
+                        <br/>
+                        <div *ngFor="let c of products" class="menu-cat paper">
+                            <div class="row" (click)="openproduct(c.id)">
+                                <div class="col-sm-6 bwImg">
+                                    <img [src]="pressnullpic(c.thumbnailPath)" style="max-width:200px;max-height:200px;" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <br/>
+                                    <p>Name: {{c.name}} </p>
+                                    <h4>Price: {{c.defaultPrice}} Baht</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="0 >= this.products.length ">
+                    <div class="paper4">
+                        <div class="paper">
+                            <p>No Product </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!viewtable">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2>Product</h2>
+                    </div>
+                    <div class="col-md-4 offset-md-4"><button (click)="changeview()" class="w3-button btn1 btn-md"><i class="material-icons">grid_on</i></button></div>
+                </div>
+                <div *ngIf="this.products.length > 0">
+                    <div class="paper4">
+                        <br/>
+                        <div class="list-items">
+                            <div class="list-item menu-cat paper bwImg" *ngFor="let c of products" style="width:200px;height:400px;">
+                                <img [src]="pressnullpic(c.thumbnailPath)" style="max-width:180px;max-height:180px;" />
+                                <br/>
+                                <br/>
+                                <p>Name: {{c.name}} </p>
+                                <h4>Price: {{c.defaultPrice}} Baht</h4>
+                                <button (click)="openproduct(c.id)" class="w3-button btn1 btn-md">DETAIL</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="0 >= this.products.length ">
+                    <div class="paper4">
+                        <div class="paper">
+                            <p>No Product </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-sm-4">
+                    <div *ngIf="homeId > 1">
+                        <button (click)=" openback()" class="w3-button btn1 btn-md">BACK</button>
+                    </div>
+                </div>
+                <div class="col-sm-4"><a>page {{homeId}}</a></div>
+                <div class="col-sm-4">
+                    <div *ngIf="this.products.length >= 9">
+                        <button (click)=" opennext()" class="w3-button btn1 btn-md">NEXT</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="col-md-4">
+            <h2>Cart Product</h2>
+            <div *ngIf="numproduct > 0">
+                <div class="paper4">
+                    <div *ngFor="let c of orderproducts" class="menu-cat paper" (click)="openproduct(c.id)">
+                        <p>Name: {{c.name}} </p>
+                        <p>Price: {{c.defaultPrice}} Baht</p>
+                    </div>
+                </div>
+            </div>
+            <button (click)="opencart()" class="w3-button btn1 btn-md">CART</button>
+            <h2>Product Random</h2>
+            <div *ngIf="this.products.length > 0">
+                <div class="paper4">
+                    <div class="paper" (click)="openproduct(randomedproduct.id)">
+                        <p>Name: {{randomedproduct?.name}}</p>
+                        <p>Price: {{randomedproduct?.defaultPrice}} Baht</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="container-fluid">
+            <router-outlet></router-outlet>
+
+        </div>
+    </div>
+</div>

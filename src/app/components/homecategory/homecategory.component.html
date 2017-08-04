@@ -1,0 +1,19 @@
+<div class="container-fluid">
+    <div *ngIf="this.products.length > 0" class="row">
+        <div *ngFor="let c of products" class="col-sm-6 col-md-4 col-lg-3">
+            <div class="shadow-border bg-light-4 p-3 mb-4 d-flex flex-column pointer" (click)="openproduct($event, c.id)">
+                <div class="item-pic d-flex v-center h-center flow-hidden mb-2">
+                    <img [src]="pressnullpic(c.thumbnailPath)" class="img-fluid" />
+                </div>
+                <h5 class="text-center mb-2">{{c.name}}</h5>
+                <h6 class="text-center mb-3 color-red"><b>{{c.defaultPrice | number: '1.2-2'}} ฿</b></h6>
+                <button (click)="addproduct(c)" type="button" class="btn btn-secondary">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="this.products.length == 0" class="row">
+        <div class="col-md-12">
+            <p class="text-center">No Product</p>
+        </div>
+    </div>
+</div>

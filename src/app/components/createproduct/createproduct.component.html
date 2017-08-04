@@ -1,0 +1,77 @@
+<div class="row ">
+    <h2>Product detail</h2>
+</div>
+<div class="paper4">
+    <div class="paper">
+        <div class="row">
+            <div class="col-sm-4">
+                <p>Name</p>
+                <input #names class="form-control" placeholder="Enter product name"><br/>
+                <p>Code</p>
+                <input #codes class="form-control" placeholder="Enter product code"><br/>
+                <p>Price</p>
+                <input #prices class="form-control" placeholder="Enter product price"><br/>
+                <p>MerchantCode (M20170001)</p>
+                <input #merchantcodes class="form-control" placeholder="Enter merchant"><br/>
+                <p>MarketPlaceCategoryCode (MPCAT2)</p>
+                <input #marketplacecategorycodes class="form-control" placeholder="Enter marketplace"><br/>
+                <p>Vat</p>
+                <!--<input #vats ><br/>-->
+                <input #vats [checked]="chang" type="checkbox" (change)="setvat()">yes<br/>
+                <br/>
+                <p>Created By</p>
+                <input #createdbys class="form-control" placeholder="Enter username"><br/>
+                <br/>
+                <br/>
+            </div>
+            <div class="col-sm-4">
+                <p>*optional</p>
+                <p>Description</p>
+                <textarea rows="4" cols="50" #descriptions class="form-control" placeholder="Enter product description"></textarea><br/>
+                <p>Height</p>
+                <input #productHeights class="form-control" placeholder="Enter product height"><br/>
+                <p>Length</p>
+                <input #productLengths class="form-control" placeholder="Enter product length"><br/>
+                <p>Weight</p>
+                <input #productWeights class="form-control" placeholder="Enter product weigth"><br/>
+                <p>Width</p>
+                <input #productWidths class="form-control" placeholder="Enter product width"><br/>
+                <p>Manufacturer</p>
+                <input #manufacturers class="form-control" placeholder="Enter product manufacturer"><br/>
+                <p>Tag</p>
+                <input #tags class="form-control" placeholder="Enter product tag"><br/>
+                <br/>
+                <br/>
+            </div>
+        </div>
+        <div class="row">
+            <p>{{errortext}}</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+
+        <br/>
+        <button type="button" class="w3-button btn1 btn-md" (click)="makedetailoptional(names.value,codes.value,prices.value,marketplacecategorycodes.value,merchantcodes.value,vats.value,createdbys.value,descriptions.value,productHeights.value,productLengths.value,productWeights.value,productWidths.value,manufacturers.value,tags.value)">CHECK</button>
+
+    </div>
+</div>
+
+<div id="content" class="container-fluid">
+    <router-outlet></router-outlet>
+</div>
+<div class="row">
+    <br/>
+    <div class="col-sm-2">
+        <button type="button" class="w3-button btn1 btn-md" (click)="confirmdata()">{{textconfirm}}</button>
+        <p>can't click? <a (click)="reloadpage()">reload</a></p>
+    </div>
+    <span *ngIf="opencreatebtn&&isOk">
+            <div class="col-sm-2">
+            <!-- Trigger the modal with a button -->
+                <button type="button" class="w3-button btn1 btn-md" (click)="sendata()">
+                    Create</button>
+            </div>
+         </span>
+</div>

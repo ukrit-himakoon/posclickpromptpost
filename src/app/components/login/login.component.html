@@ -1,0 +1,49 @@
+<div class="container">
+    <h2>Login</h2>
+</div>
+<div class="paper4">
+<form class="form-horizontal paper">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="username">Username:</label>
+    <div class="col-sm-10">
+      <input class="form-control" #usernames placeholder="Enter username">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Password:</label>
+    <div class="col-sm-10"> 
+      <input type="password" class="form-control"  #passwords id="pwd" placeholder="Enter password">
+    </div>
+  </div>
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button class="w3-button btn1 btn-md" (click)="userlogin(usernames.value,passwords.value)">Login</button>
+    <span *ngIf="merchants">
+        <button class="w3-button btn1 btn-md" (click)="merchantlogin(usernames.value,passwords.value)">Merchant Login</button>
+    </span>
+    <p>You're merchant? <a (click)="openmerchantlogin()"><u>click this</u></a></p>
+    </div>
+  </div>
+</form>
+</div>
+
+<div class="paper4">
+<div class="container paper">
+    <h2>Login</h2>
+    <div class="row">
+    <div class="col-sm-2"><p>Username</p></div>
+    <div class="col-sm-2"><input #usernames></div>
+    </div>
+ <div class="row">
+    <div class="col-sm-2"><p>Password</p></div>
+    <div class="col-sm-2"><input type="password" #passwords></div>
+</div>
+    <br/>
+    <button class="w3-button btn1 btn-md" (click)="userlogin(usernames.value,passwords.value)">Login</button>
+    <span *ngIf="merchants">
+        <button class="w3-button btn1 btn-md" (click)="merchantlogin(usernames.value,passwords.value)">Merchant Login</button>
+    </span>
+    <p>You're merchant? <a (click)="openmerchantlogin()"><u>click this</u></a></p>
+
+</div>
+</div>

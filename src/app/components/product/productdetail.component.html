@@ -1,0 +1,57 @@
+<!--<div class="row">
+    <div class="paper4">
+     <table>
+             <tr>
+                    <td><p>Search ID</p></td> 
+                    <td> <input class="form-control" value={{searchms}} #idproduct width="300px" (keyup.enter)="searchproduct(idproduct.value)"></td>
+                    <td><button (click)="searchproduct(idproduct.value)" placeholder="Enter product id">search</button></td>
+                    <td><button (click)="gotocreate()">create</button></td>
+            </tr>
+        </table>
+    </div>
+</div>-->
+<div class="row">
+        <div class="col-md-12 menu-cat">
+            <h2>Product</h2>
+            <div class="paper4">
+            <div class="paper">
+            <div class="row  " >
+                <div class="col-md-8 ">
+                <p>Name: {{product?.name}}</p>
+               
+                <p>Id: {{product?.id}}</p>
+                <p>Detail: <br>{{product?.description}}</p>
+                <p>SKU: {{addProductDetails()?.sku}}</p>
+                <p>CreatedBy: {{product?.createdBy}}</p>
+                <p>MarketplaceCategoryCode: {{product?.marketplaceCategoryCode}}</p>
+                <p>Manufacturer: {{product?.manufacturer}}</p>
+                <p>MerchantCode: {{product?.merchantCode}}</p>
+                <p>MerchantName: {{product?.merchantName}}</p>
+                <p>VAT: {{product?.vat}}</p>
+                <p>CreatedDateTime: {{product?.createdDateTime}}</p>
+                <h3>Price: {{product?.defaultPrice}} Baht</h3>
+                <br/>
+                    <p>value: {{quantity}}</p>
+                    <button (click)="decreaseproduct()" class="w3-button btn1 btn-md">-</button>
+                    <button (click)="increaseproduct()" class="w3-button btn1 btn-md">+</button>
+                </div>
+
+                <div class="col-md-4">
+                     <br/>
+                     <a [href]="addpic()" target="_blank">
+                        <img [src]="addpic()" style ="max-width:300px;max-height:300px;"/>
+                     </a>
+                </div>
+            </div>
+            <br/>
+            <span *ngIf="found">
+                <button (click)="addproduct()" class="w3-button btn1 btn-md">ADD TO CART </button>
+            </span>
+            </div>
+            </div>
+        </div >
+                        
+        <div id="content" class="container-fluid">
+            <router-outlet></router-outlet>
+        </div>
+    </div>

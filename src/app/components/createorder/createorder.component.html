@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="bg-light-4 shadow-border p-3">
+                <h4 class="mb-3">Please fill personal detail</h4>
+                <div>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input class="form-control" #names>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" #emails><br/>
+                    </div>
+                    <div class="form-group">
+                        <label>Billing address</label>
+                        <textarea rows="4" cols="50" class="form-control" #addresss></textarea><br/>
+                    </div>
+                    <div class="form-group">
+                        <label>Shipping address</label>
+                        <textarea rows="4" cols="50" class="form-control" #shipaddresss></textarea><br/>
+                    </div>
+                    <div class="color-red p-3 text-center">{{errortext}}</div>
+                </div>
+                <div class="text-center">
+                    <button type="button" (click)="makeOrder(addresss.value,names.value,emails.value,shipaddresss.value)" class="btn btn-secondary">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
