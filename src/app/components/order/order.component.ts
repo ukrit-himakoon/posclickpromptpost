@@ -11,6 +11,7 @@ export class OrderComponent implements OnInit {
 
     products: any[];
     orderproducts: any[];
+    groupproduct: any = [];
     priceorder: any = {};
     numproduct= 0;
 
@@ -23,6 +24,7 @@ export class OrderComponent implements OnInit {
         this.orderproducts = JSON.parse(sessionStorage.getItem('cart'));
         this.priceorder.masterOrderSubTotal = 0;
         this.products = this.orderproducts;
+        this. groupingorder();
         if(this.products!=null){
             this.calculatePrice();
             var listorder = JSON.parse(sessionStorage.getItem('cartorder'));
@@ -170,6 +172,7 @@ export class OrderComponent implements OnInit {
         this.priceorder.masterOrderSubTotal = 0;
         this.products = this.orderproducts;
         if(this.products!=null){
+            this. groupingorder();
             this.calculatePrice();
             var listorder = JSON.parse(sessionStorage.getItem('cartorder'));
             this.orderpriceService.list(listorder)
@@ -186,5 +189,24 @@ export class OrderComponent implements OnInit {
     }
     backtohome(){
          this.router.navigate(['/']);
+    }
+    groupingorder(){
+        this.groupproduct = [];
+        this.products
+        for(var j = 0, len = this.products.length; j < len; j++){
+            var b = true;
+            for(var i = 0, len1 = this.groupproduct.length; i < len1; i++){
+               if(this.products[j].id==this.groupproduct[i].id){
+                            b = false;
+                            this.groupproduct[i].qt += 1;
+                        }
+            }
+            if(b){
+                var pd = this.products[j];
+                pd['qt'] = 1;
+                this.groupproduct.push(pd);
+            }  
+        }
+        sessionStorage.setItem('gcart',JSON.stringify(this.groupproduct));
     }    
 }

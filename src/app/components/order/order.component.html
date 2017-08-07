@@ -8,11 +8,12 @@
                         <tr>
                             <th></th>
                             <th class="text-center">Product</th>
+                            <th class="text-center">Quantity</th>
                             <th class="text-center">Price</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let c of products">
+                        <tr *ngFor="let c of groupproduct">
                             <td class="text-center align-middle" style="width: 80px">
                                 <a (click)="delete(c.id)"><i class="material-icons">close</i></a>
                             </td>
@@ -26,7 +27,12 @@
                                     </div>
                                 </div>
                             </td>
-                            <td style="width: 200px" class="text-center align-middle">{{c.defaultPrice | number: '1.2-2'}}฿</td>
+                            <td class="align-middle">
+                                <div class="align-self-center typography-body-2 text-center">
+                                    <a>{{c.qt}}</a>
+                                </div>
+                            </td>
+                            <td style="width: 200px" class="text-center align-middle">{{c.defaultPrice*c.qt | number: '1.2-2'}}฿</td>
                         </tr>
                     </tbody>
                     <tfoot>
