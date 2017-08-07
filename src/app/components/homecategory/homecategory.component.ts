@@ -83,7 +83,9 @@ export class HomecategoryComponent implements OnInit {
         this.productDetailService.list(p.id)
             .then((data: any) => {
                 if (data.result == "SUCCESS") {
-                    b.push(data.data);
+                    var pd = data.data;
+                    pd["sku"]=  pd.rProductDetails[0].sku;
+                    b.push(pd);
                     sessionStorage.setItem('cart', JSON.stringify(b));
                     this.app.checkCartvalue();
                 }

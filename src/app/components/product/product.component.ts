@@ -13,6 +13,8 @@ export class ProductComponent implements OnInit {
      quantity = 1;
      searchms ='';
      found = false;
+     ssku = '';
+     sop = '';
     //constructor(private router: Router) { }
 
     constructor(private productService: DetailproductService, private router: Router,private activatedRoute: ActivatedRoute,private app:AppComponent) {}
@@ -26,6 +28,9 @@ export class ProductComponent implements OnInit {
               if (data.result == "SUCCESS") {
                   this.product = data.data;
                   this.found = true;
+                  this.ssku = this.product.rProductDetails[0].sku;
+                  this.sop = this.product.rProductDetails[0].productDetailOptionAndValueList[0].productOptionValueBean.code;
+                  console.log(this.ssku);
                   sessionStorage.setItem('product', JSON.stringify(this.product));
               }
                 else{
@@ -57,7 +62,9 @@ export class ProductComponent implements OnInit {
         //  }
 
          for (var i = 0; i < this.quantity; i++) {
-             b.push(this.product);
+             var pd = this.product;
+             pd["sku"]= this.ssku;
+             b.push(pd);
          }
         
          sessionStorage.setItem('cart',JSON.stringify(b));
@@ -91,5 +98,16 @@ export class ProductComponent implements OnInit {
             this.router.navigate(['/detailproduct', this.userId]);
         }
         
+    }
+    selectOption(d:any){
+        this.ssku = d.sku;
+        this.sop = d.productDetailOptionAndValueList[0].productOptionValueBean.code;
+        console.log(this.ssku);
+    }
+    checkselect(d:any){
+        if(this.ssku == d.sku){
+            return true;
+        }
+        return false;
     }
 }

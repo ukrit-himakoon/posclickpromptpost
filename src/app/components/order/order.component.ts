@@ -102,7 +102,7 @@ export class OrderComponent implements OnInit {
                     var b1 = true;
                     for(var k = 0, len2 = orederist[i].orderItemList.length; k < len2; k++){
                         //console.log(this.products[j].rProductDetails[0].sku+"/"+orederist[i].orderItemList[k].sku);
-                        if(this.products[j].rProductDetails[0].sku==orederist[i].orderItemList[k].sku){
+                        if(this.products[j].sku==orederist[i].orderItemList[k].sku){
                             b1 = false;
                             orederist[i].orderItemList[k].quantity += 1;
                         }
@@ -111,7 +111,7 @@ export class OrderComponent implements OnInit {
                         orederist[i].orderItemList.push(
                             { 
                                 "quantity": 1, 
-                                "sku": this.products[j].rProductDetails[0].sku 
+                                "sku": this.products[j].sku 
                             } 
                         );
                     }
@@ -126,7 +126,7 @@ export class OrderComponent implements OnInit {
                     "orderItemList": [ 
                             { 
                                 "quantity": 1, 
-                                "sku": this.products[j].rProductDetails[0].sku 
+                                "sku": this.products[j].sku 
                             } 
                         ] 
                     });
@@ -144,11 +144,13 @@ export class OrderComponent implements OnInit {
             this.router.navigate(['/createorder']);
         }
     }
-    delete(id:any){
+    delete(c:any){
         //console.log("any go");
+        var id = c.sku;
+        console.log(id);
         var newproducts=[];
          for(var j = 0, len = this.products.length; j < len; j++){
-            if(this.products[j].id==id){
+            if(this.products[j].sku==id){
                 console.log(id);
                 id = -1;
             }
@@ -196,7 +198,7 @@ export class OrderComponent implements OnInit {
         for(var j = 0, len = this.products.length; j < len; j++){
             var b = true;
             for(var i = 0, len1 = this.groupproduct.length; i < len1; i++){
-               if(this.products[j].id==this.groupproduct[i].id){
+               if(this.products[j].sku==this.groupproduct[i].sku){
                             b = false;
                             this.groupproduct[i].qt += 1;
                         }
