@@ -39,13 +39,8 @@ export class CreatepaymentComponent implements OnInit {
     paymentdetail: any = {};
     sendedorder: any = {};
     ngOnInit() {
-        if(sessionStorage.getItem('createorderresult')!=null){
-                this.paymentdetail = JSON.parse(sessionStorage.getItem('createorderresult'));
-                this.insertval();
-                console.log("refresh");
-            }
-            else{
-               var listorder = JSON.parse(sessionStorage.getItem('cartcreateorder'));
+        if(sessionStorage.getItem('cartcreateorder')!=null){
+                var listorder = JSON.parse(sessionStorage.getItem('cartcreateorder'));
                 this.createorderService.list(listorder)
                 .then((data: any) => {
                 if (data.result == "SUCCESS") {
@@ -53,9 +48,21 @@ export class CreatepaymentComponent implements OnInit {
                       sessionStorage.setItem('createorderresult',JSON.stringify(this.sendedorder));
                       this.paymentdetail = this.sendedorder;
                       this.insertval();
+                       sessionStorage.removeItem('cartcreateorder');
                 }
             });
+        }
+        else{
+            if(sessionStorage.getItem('createorderresult')!=null){
+                this.paymentdetail = JSON.parse(sessionStorage.getItem('createorderresult'));
+                this.insertval();
+                console.log("refresh");
             }
+            else{
+                this.router.navigate(['/']);
+            }
+        }
+        
         /*if(sessionStorage.getItem('cart')!=null&&sessionStorage.getItem('cartorder')!=null){
             sessionStorage.removeItem('cart');
             sessionStorage.removeItem('cartorder');

@@ -32,6 +32,9 @@ export class PaymentComponent implements OnInit {
                         sessionStorage.setItem('createorderresult',JSON.stringify(this.sendedorder));
                         this.orderdetail = this.sendedorder;
                         this.statuspay = this.orderdetail.orderPayment.paymentStatus;
+                        if(this.statuspay=='PAID'){
+                            sessionStorage.removeItem('cart');
+                        }
                     }
                 });
             }
