@@ -9,12 +9,14 @@ import { AppComponent } from '../../app.component';
 })
 export class ProductComponent implements OnInit {
      product: any = {};
+     selp : any = {};
      userId: any;
      quantity = 1;
      searchms ='';
      found = false;
      ssku = '';
      sop = '';
+     selectedValue ='';
     //constructor(private router: Router) { }
 
     constructor(private productService: DetailproductService, private router: Router,private activatedRoute: ActivatedRoute,private app:AppComponent) {}
@@ -29,8 +31,9 @@ export class ProductComponent implements OnInit {
                   this.product = data.data;
                   this.found = true;
                   this.ssku = this.product.rProductDetails[0].sku;
-                  this.sop = this.product.rProductDetails[0].productDetailOptionAndValueList[0].productOptionValueBean.code;
-                  console.log(this.ssku);
+                  this.selp = this.product.rProductDetails[0];
+                  //this.sop = this.product.rProductDetails[0].productDetailOptionAndValueList[0].productOptionValueBean.code;
+                  //console.log(this.ssku);
                   sessionStorage.setItem('product', JSON.stringify(this.product));
               }
                 else{
@@ -51,6 +54,7 @@ export class ProductComponent implements OnInit {
     }
 
     addproduct(){
+        console.log(this.ssku);
         var b = [];
         if(sessionStorage.getItem('cart')!= null){
             b = JSON.parse(sessionStorage.getItem('cart'));
@@ -100,9 +104,19 @@ export class ProductComponent implements OnInit {
         
     }
     selectOption(d:any){
-        this.ssku = d.sku;
-        this.sop = d.productDetailOptionAndValueList[0].productOptionValueBean.code;
+       // console.log(d.sku);
+        //this.ssku = d.sku;
+        //this.sop = d.productDetailOptionAndValueList[0].productOptionValueBean.code;
+        //console.log(this.ssku);
+        console.log(d);
+    }
+    
+    selectOption1(){
+       // console.log(d.sku);
+        this.ssku = this.selp.sku;
+        this.sop = this.selp.productDetailOptionAndValueList[0].productOptionValueBean.code;
         console.log(this.ssku);
+        console.log(this.sop);
     }
     checkselect(d:any){
         if(this.ssku == d.sku){

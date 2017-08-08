@@ -14,10 +14,18 @@
                         <div>Description:</div>
                         <p class="mb-4">{{product?.description}}</p>
                         <div *ngIf="product.rProductDetails?.length > 1" class="row">
-                            <div *ngFor="let d of product.rProductDetails" (click)="selectOption(d)">
+                            <!--<div *ngFor="let d of product.rProductDetails" (click)="selectOption(d)">
                                 <p>{{d.productDetailOptionAndValueList[0].productOptionValueBean.code}}&nbsp;&nbsp;&nbsp;&nbsp;</p>
                             </div>
-                            <p>({{sop}})</p>
+                            <p>({{sop}})</p>-->
+                            <p>Color :&nbsp;&nbsp;</p>
+                            <div>
+                            <select [(ngModel)]="selp" #t (change)="selectOption1()"  >
+                                <option *ngFor="let d of product.rProductDetails" [ngValue]="d" style=" background-color: getcolor(d) ">{{d.productDetailOptionAndValueList[0].productOptionValueBean.code}}</option>
+                            </select>
+                            </div>
+                            <br/>
+
                         </div>
                         <div class="d-flex flex-row mb-3 v-center">
                             <div class="pr-3">Qty:</div>
@@ -46,3 +54,4 @@
         <source src="http://27.254.138.113:8114/VODS/1014_0030000011.m3u8?Fsv_filetype=1&Fsv_cid=1014&Fsv_FirstSegID=30000011&Provider_id=FilmandEntertainment&Pcontent_id=11111111000000001111000000003815&Fsv_CMSID=FilmandEntertainment&Fsv_otype=0&FvSeid=5810b7c6d0794bf3&UserID=&AuthInfo=&version=&_fwobw=1000000&_fwtbw=600000" type="application/x-mpegURL">
     </video>-->
 </div>
+
