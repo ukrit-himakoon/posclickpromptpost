@@ -10,7 +10,7 @@
                     </div>
                     <div class="col-md-6 ">
                         <h2 class="mt-2 mb-3">{{product?.name}}</h2>
-                        <h3 class="mb-5" class="color-red">{{product?.defaultPrice | number: '1.2-2'}}฿</h3>
+                        <h3 class="mb-5" class="color-red">{{product?.defaultPrice | number: '1.2-2'}} + {{sprice| number: '1.2-2'}} = {{product?.defaultPrice+sprice | number: '1.2-2'}}฿</h3>
                         <div>Description:</div>
                         <p class="mb-4">{{product?.description}}</p>
                         <div *ngIf="product.rProductDetails?.length > 1" class="row">

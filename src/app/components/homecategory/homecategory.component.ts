@@ -85,6 +85,7 @@ export class HomecategoryComponent implements OnInit {
                 if (data.result == "SUCCESS") {
                     var pd = data.data;
                     pd["sku"]=  pd.rProductDetails[0].sku;
+                    pd["opprice"]=  pd.rProductDetails[0].optionPrice||0;
                     b.push(pd);
                     sessionStorage.setItem('cart', JSON.stringify(b));
                     this.app.checkCartvalue();

@@ -16,6 +16,7 @@ export class ProductComponent implements OnInit {
      found = false;
      ssku = '';
      sop = '';
+     sprice = 0;
      selectedValue ='';
     //constructor(private router: Router) { }
 
@@ -31,6 +32,7 @@ export class ProductComponent implements OnInit {
                   this.product = data.data;
                   this.found = true;
                   this.ssku = this.product.rProductDetails[0].sku;
+                  this.sprice = this.product.rProductDetails[0].optionPrice||0;
                   this.selp = this.product.rProductDetails[0];
                   //this.sop = this.product.rProductDetails[0].productDetailOptionAndValueList[0].productOptionValueBean.code;
                   //console.log(this.ssku);
@@ -68,6 +70,7 @@ export class ProductComponent implements OnInit {
          for (var i = 0; i < this.quantity; i++) {
              var pd = this.product;
              pd["sku"]= this.ssku;
+             pd["opprice"]= this.sprice;
              b.push(pd);
          }
         
@@ -114,8 +117,10 @@ export class ProductComponent implements OnInit {
     selectOption1(){
        // console.log(d.sku);
         this.ssku = this.selp.sku;
+        this.sprice = this.selp.optionPrice;
         this.sop = this.selp.productDetailOptionAndValueList[0].productOptionValueBean.code;
         console.log(this.ssku);
+        console.log(this.sprice);
         console.log(this.sop);
     }
     checkselect(d:any){
