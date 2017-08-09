@@ -27,7 +27,7 @@ import {HomecategoryComponent} from'./components/homecategory/homecategory.compo
 import {CreatepaymentComponent} from './components/createpayment/createpayment.component';
 import {SearchorderdetailmerchantComponent} from './components/searchorderdetail/searchorderdetailmerchant.component';
 import {SearchorderdetailComponent} from './components/searchorderdetail/searchorderdetail.component';
-
+import { PrintreportComponent } from './components/printreport/printreport.component';
 
 import { CategoryService } from './services/category.service';
 import { ProductService } from './services/product.service';
@@ -59,7 +59,8 @@ import { MarketplacecategoryService } from './services/marketplacecategory.servi
         CreatepaymentComponent,
         SearchorderdetailmerchantComponent,
         SearchorderdetailComponent,
-        MediaComponent
+        MediaComponent,
+        PrintreportComponent
     ],
     imports: [
 
@@ -94,6 +95,7 @@ import { MarketplacecategoryService } from './services/marketplacecategory.servi
             { path: 'merchantorderdetail', component: SearchorderdetailmerchantComponent },
             { path: 'customerorderdetail', component: SearchorderdetailComponent },
             { path: 'mediaplayer', component: MediaComponent },
+            { path: 'printreport', component: PrintreportComponent },
         ])
     ],
     providers: [[CategoryService],[ProductService],[DetailproductService],[OrderpriceService],[CreateorderService],[SearchorderService],[SearchordermerchantService],[CreateproductService],[MerchantService],[MarketplacecategoryService],[OrderdetailService]],

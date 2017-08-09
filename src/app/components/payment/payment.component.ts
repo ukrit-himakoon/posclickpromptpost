@@ -105,9 +105,21 @@ export class PaymentComponent implements OnInit {
             "createDateTime": this.orderdetail.createDateTime,
             "updateDateTime": this.orderdetail.updateDateTime,
             "shippingAddressId": this.orderdetail.shippingAddressId,
+            "paymentStatus": this.orderdetail.orderPayment.paymentStatus,
             "time": new Date().getDate() + "-" + (new Date().getMonth() + 1) + "-" + new Date().getFullYear() + "-" + new Date().getHours() + "-" + new Date().getMinutes() + "-" + new Date().getSeconds(),
         }
-        this.dayreport.push(nowreport);
+        var dup =true;
+        for(var i = 0,len = this.dayreport.length;i<len;i++){
+            if(this.dayreport[i].masterOrderId==nowreport.masterOrderId){
+                console.log(nowreport.masterOrderId);
+                this.dayreport[i] = nowreport;
+                dup =false;
+            }
+        }
+        if(dup){
+            console.log(this.orderdetail.masterOrderId+"new");
+            this.dayreport.push(nowreport);
+        }
         localStorage.setItem('offlinereport', JSON.stringify(this.dayreport));
     }
     csvt() {
