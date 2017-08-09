@@ -50,8 +50,13 @@ export class CreateorderComponent implements OnInit {
     surebuying = false;
     enterdetail(a: string, n: string, e: string, s: string) {
         console.log(a + ":" + n + ":" + e + ":" + s);
-        if (a && n && e && s ) {
-            if(!this.mailFormat(e)){
+        if (a && n && e && s) {
+            if (!this.nameFormat(n)) {
+                this.errortext = "Name format is incorrect, please enter again ";
+                this.ok = false;
+                return;
+            }
+            if (!this.mailFormat(e)) {
                 this.errortext = "Email is incorrect, please enter again ";
                 this.ok = false;
                 return;
@@ -100,7 +105,7 @@ export class CreateorderComponent implements OnInit {
                     "isMediaOrder": "N",
                     "orderAttribute": [{}],
                     "mediaTotalAmount": 0.0,
-                    "shippingAddressId" : 21,
+                    "shippingAddressId": 21,
                     "shippingAddress": "address for test area for test, City for test, State for test, Thailand, 12345"
                 },
                 "locale": "th"
@@ -140,11 +145,23 @@ export class CreateorderComponent implements OnInit {
         var EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 
         if (control != "" && (EMAIL_REGEXP.test(control.toString()))) {
-            console.log("true");
+            //console.log("true");
             return true;
         }
-        console.log("false");
+        //console.log("false");
 
+        return false;
+
+    }
+    nameFormat(control: String) {
+        //var str = "Visit W3Schools!"; 
+        //var n = str.search("W3Schools");
+        //console.log(n);
+        var NAME_REGEXP = /^[ก-๛a-zA-Z' ]+\s[ก-๛a-zA-Z'0-9]+$/i;
+
+        if (control != "" && (NAME_REGEXP.test(control.toString()))) {
+            return true;
+        }
         return false;
 
     }

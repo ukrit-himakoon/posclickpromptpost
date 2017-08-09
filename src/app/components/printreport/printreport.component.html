@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-sm-8">
+        <h2>Report summary</h2>
+    </div>
+    <div class="col-sm-4">
+        <input type="button" class="btn btn-secondary " value="Print this page" onClick="window.print()"><i class="material-icons">print</i>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="paper4">
+            <div class="paper">
+                <h4>Report detail</h4>
+                <p>Order number : {{dayreport.length}}</p>
+                <p>Date : {{nowdate}}</p>
+            </div>
+            <div *ngFor="let c of dayreport">
+                <div class="paper">
+                    <h4>Order details</h4>
+                    <p>OrderId: {{c.masterOrderId}}</p>
+                    <p>OrderNo: {{c.masterOrderNo}}</p>
+                    <p>Status: {{c.status}}</p>
+                    <p>paymentStatus {{c.orderPayment?.paymentStatus}}</p>
+                    <h3>Amount: {{c.masterOrderTotalAmount}} Baht</h3>
+                    <br/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<span *ngIf="checkpaystatus()">
+               <button (click)="gotopay()" class="btn btn-secondary">Back to pay</button>
+            </span>
+<button (click)="reportprint()" class="btn btn-secondary">save</button>
