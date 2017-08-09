@@ -3,7 +3,7 @@
             <h2>Payment summary</h2>
         </div>
         <div class="col-sm-4">
-            <input type="button" class="w3-button btn1 btn-md "  value="Print this page" onClick="window.print()"><i class="material-icons">print</i>
+            <input type="button" class="btn btn-secondary "  value="Print this page" onClick="window.print()"><i class="material-icons">print</i>
         </div>
     </div>
 <div class="row">
@@ -34,6 +34,6 @@
 </div>
 
             <span *ngIf="checkpaystatus()">
-               <button (click)="gotopay()" class="w3-button btn1 btn-md">Back to pay</button>
+               <button (click)="gotopay()" class="btn btn-secondary">Back to pay</button>
             </span>
-            <button (click)="reportprint()" class="w3-button btn1 btn-md">save</button>
+            <button (click)="reportprint()" class="btn btn-secondary">save</button>

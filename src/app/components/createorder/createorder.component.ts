@@ -50,7 +50,12 @@ export class CreateorderComponent implements OnInit {
     surebuying = false;
     enterdetail(a: string, n: string, e: string, s: string) {
         console.log(a + ":" + n + ":" + e + ":" + s);
-        if (a && n && e && s) {
+        if (a && n && e && s ) {
+            if(!this.mailFormat(e)){
+                this.errortext = "Email is incorrect, please enter again ";
+                this.ok = false;
+                return;
+            }
             this.errortext = "Information is OK, please confirm";
             if (this.billaddress != a || this.name != n || this.email != e || this.shipaddress != s) {
                 if (this.billaddress == '' && this.name == '' && this.email == '' && this.shipaddress == '') {
@@ -89,7 +94,7 @@ export class CreateorderComponent implements OnInit {
                     "billingAddress": "address for test area for test, City for test, State for test, Thailand, 12345",
                     "currencyCode": "TH",
                     "customerEmailAddress": "bz@b.com",
-                    "customerId": "xxxxx",
+                    "customerId": "xxx",
                     "customerName": "bz",
                     "deviceId": "fe52fec2",
                     "isMediaOrder": "N",
@@ -128,6 +133,20 @@ export class CreateorderComponent implements OnInit {
     reloadpage() {
         location.reload();
     }
+    mailFormat(control: String) {
+        //var str = "Visit W3Schools!"; 
+        //var n = str.search("W3Schools");
+        //console.log(n);
+        var EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 
+        if (control != "" && (EMAIL_REGEXP.test(control.toString()))) {
+            console.log("true");
+            return true;
+        }
+        console.log("false");
+
+        return false;
+
+    }
 
 }
