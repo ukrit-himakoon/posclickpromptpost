@@ -1,0 +1,64 @@
+<!--<iframe src="https://s3.amazonaws.com/_bc_dml/example-content/sintel_dash/sintel_vod.mpd"></iframe>-->
+<div class="bg-light-4 shadow-border p-3">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>First Name</label>
+                <input class="form-control" #fnames>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Last Name</label>
+                <input class="form-control" #lnames>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Address</label>
+                <input class="form-control" #addresses>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Area</label>
+                <input class="form-control" #araes>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>City</label>
+                <input class="form-control" #citys>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Country</label>
+                <input class="form-control" #countries>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Zip code</label>
+                <input class="form-control" #zips>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Telephone</label>
+                <input class="form-control" #telephones>
+            </div>
+        </div>
+    </div>
+    <textarea rows="4" cols="50" class="form-control" #shipaddresss value="{{textresult}}"></textarea><br/>
+</div>
+<div class="text-center">
+    <button type="button" (click)="generateText(fnames.value,lnames.value,addresses.value,araes.value,citys.value,countries.value,zips.value,telephones.value)"
+        class="btn btn-secondary">Generate</button>
+</div>

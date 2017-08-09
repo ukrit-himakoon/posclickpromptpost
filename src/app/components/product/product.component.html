@@ -25,7 +25,7 @@
                             <p>({{sop}})</p>-->
                             <p>Color :&nbsp;&nbsp;</p>
                             <div>
-                            <select [(ngModel)]="selp" #t (change)="selectOption1()"  >
+                            <select [(ngModel)]="selp" #t (change)="selectOption1()"  style="width:100px">
                                 <option *ngFor="let d of product.rProductDetails" [ngValue]="d" style=" background-color: getcolor(d) ">{{d.productDetailOptionAndValueList[0].productOptionValueBean.code}}</option>
                             </select>
                             </div>
