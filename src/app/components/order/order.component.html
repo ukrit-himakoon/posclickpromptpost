@@ -15,7 +15,7 @@
                     <tbody>
                         <tr *ngFor="let c of groupproduct">
                             <td class="text-center align-middle" style="width: 80px">
-                                <a (click)="delete(c)"><i class="material-icons">close</i></a>
+                                <a (click)="deletesku(c)"><i class="material-icons">close</i></a>
                             </td>
                             <td class="align-middle">
                                 <div class="d-flex flex-row">
@@ -30,7 +30,7 @@
                             </td>
                             <td class="align-middle">
                                 <div class="align-self-center typography-body-2 text-center">
-                                    <a>{{c.qt}}</a>
+                                   <a (click)="removeitem(c)"> <i class="material-icons">keyboard_arrow_left</i>-</a><a> {{c.qt}} </a><a (click)="additem(c)">+<i class="material-icons">keyboard_arrow_right</i></a>
                                 </div>
                             </td>
                             <td style="width: 200px" class="text-center align-middle">{{(c.defaultPrice+c.opprice)*c.qt | number: '1.2-2'}}฿</td>
