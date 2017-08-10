@@ -2,23 +2,23 @@
     <div class="row">
         <div class="col-md-12">
             <div class="bg-light-4 shadow-border p-3">
-                <h4 class="mb-3">Please fill personal detail</h4>
+                <h4 class="mb-3">Personal detail</h4>
                 <div>
                     <div class="form-group">
                         <label>Name</label>
-                        <input class="form-control" #names>
+                        <input readonly class="form-control" #names value="{{pname}}">
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input class="form-control" #emails><br/>
+                        <input readonly class="form-control" #emails value="{{pemail}}"><br/>
                     </div>
                     <div class="form-group">
                         <label>Billing address</label>
-                        <textarea rows="4" cols="50" class="form-control" #addresss></textarea><br/>
+                        <textarea readonly rows="4" cols="50" class="form-control" #addresss value="{{pbilladd}}"></textarea><br/>
                     </div>
                     <div class="form-group">
                         <label>Shipping address</label>
-                        <textarea rows="4" cols="50" class="form-control" #shipaddresss></textarea><br/>
+                        <textarea readonly rows="4" cols="50" class="form-control" #shipaddresss value="{{pshipadd}}"></textarea><br/>
                     </div>
                     <div class="color-red p-3 text-center">{{errortext}}</div>
                 </div>

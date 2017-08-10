@@ -141,7 +141,8 @@ export class OrderComponent implements OnInit {
     }
     open() {
         if (this.numproduct > 0) {
-            this.router.navigate(['/createorder']);
+            //this.router.navigate(['/createorder']);
+            this.router.navigate(['/personaldetail']);
         }
     }
     delete(c: any) {

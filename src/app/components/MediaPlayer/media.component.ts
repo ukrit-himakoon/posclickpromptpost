@@ -24,11 +24,26 @@ export class MediaComponent implements OnInit {
 
 
     }
-    generateText(f: string, l: string, ad: string, ar: string, ci: string, co: string, zi: string, tel: string) {
-        if (f && l && ad && ar && ci && co && zi && tel) {
-            var Addressd = f + " " + l + " " + ad + " " + ar + " " + ci + " " + co + " " + zi + " " + tel;
+    generateText(f: string, l: string, ad: string, ar: string, ci: string, st: string, co: string, zi: string, tel: string, fa: string, e:string) {
+        if (f && l && ad && ar && ci && st && co && zi && tel && fa && e) {
+            var Addressd = f + " " + l + " " + ad + " " + ar + " " + ci + " " + st + " " + co + " " + zi + " " + tel + " " + fa + " " + e;
             console.log(Addressd);
-            this. textresult = Addressd;
+            this.textresult = Addressd;
+            var addressformat = {
+                "firstName": f,
+                "lastName": l,
+                "addressDetail1": ad,
+                "addressDetail2": ar,
+                "city": ci,
+                "state": st,
+                "country": co,
+                "postCode": zi,
+                "fax": fa,
+                "telephone": tel,
+                "email": e,
+            }
+            sessionStorage.setItem('addressdata', JSON.stringify(addressformat));
+           // this.router.navigate(['/createpayment']);
         }
     }
 }

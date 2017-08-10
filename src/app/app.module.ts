@@ -28,6 +28,7 @@ import {CreatepaymentComponent} from './components/createpayment/createpayment.c
 import {SearchorderdetailmerchantComponent} from './components/searchorderdetail/searchorderdetailmerchant.component';
 import {SearchorderdetailComponent} from './components/searchorderdetail/searchorderdetail.component';
 import { PrintreportComponent } from './components/printreport/printreport.component';
+import { PersonaldetailComponent } from './components/personaldetail/personaldetail.component';
 
 import { CategoryService } from './services/category.service';
 import { ProductService } from './services/product.service';
@@ -60,7 +61,8 @@ import { MarketplacecategoryService } from './services/marketplacecategory.servi
         SearchorderdetailmerchantComponent,
         SearchorderdetailComponent,
         MediaComponent,
-        PrintreportComponent
+        PrintreportComponent,
+        PersonaldetailComponent
     ],
     imports: [
 
@@ -96,6 +98,7 @@ import { MarketplacecategoryService } from './services/marketplacecategory.servi
             { path: 'customerorderdetail', component: SearchorderdetailComponent },
             { path: 'mediaplayer', component: MediaComponent },
             { path: 'printreport', component: PrintreportComponent },
+            { path: 'personaldetail', component: PersonaldetailComponent },
         ])
     ],
     providers: [[CategoryService],[ProductService],[DetailproductService],[OrderpriceService],[CreateorderService],[SearchorderService],[SearchordermerchantService],[CreateproductService],[MerchantService],[MarketplacecategoryService],[OrderdetailService]],

@@ -14,7 +14,10 @@ export class CreateorderComponent implements OnInit {
     errortext = ' ';
     addresssss = "28/77 แขวงสามวาตะวันตก เขตคลองสามวา กรุงเทพ 10511 ไทย";
 
-
+    pname = '';
+    pemail = '';
+    pshipadd = '';
+    pbilladd = '';
     constructor(private router: Router, private createorderService: CreateorderService) { }
 
     ngOnInit() {
@@ -30,6 +33,13 @@ export class CreateorderComponent implements OnInit {
                    this.priceorder = data.data;
                }
              });*/
+        }
+        var pdetail = JSON.parse(sessionStorage.getItem('addressdata'));
+        if (pdetail != null) {
+            this.pname = pdetail.firstName + " " + pdetail.lastName;
+            this.pemail = pdetail.email;
+            this.pshipadd = pdetail.addressDetail1 + " " + pdetail.addressDetail2 + " " + pdetail.city + " " + pdetail.state + " " + pdetail.country + " " + pdetail.postCode + " " + pdetail.fax + " " + pdetail.telephone;
+            this.pbilladd = this.pshipadd;
         }
 
 
