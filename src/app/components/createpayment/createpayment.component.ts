@@ -12,6 +12,7 @@ export class CreatepaymentComponent implements OnInit {
     constructor(private router: Router,private createorderService: CreateorderService,private app:AppComponent) {}
 
     merchants = false;
+    dayreport: any = [];
     
     texx = '';
     versionno = "";
@@ -39,6 +40,9 @@ export class CreatepaymentComponent implements OnInit {
     paymentdetail: any = {};
     sendedorder: any = {};
     ngOnInit() {
+        if (localStorage.getItem('offlinereport') != null) {
+                this.dayreport = JSON.parse(localStorage.getItem('offlinereport'));
+            }
         if(sessionStorage.getItem('cartcreateorder')!=null){
                 var listorder = JSON.parse(sessionStorage.getItem('cartcreateorder'));
                 this.createorderService.list(listorder)
@@ -47,6 +51,7 @@ export class CreatepaymentComponent implements OnInit {
                    this.sendedorder = data.data;
                       sessionStorage.setItem('createorderresult',JSON.stringify(this.sendedorder));
                       this.paymentdetail = this.sendedorder;
+                      this.createreport();
                       this.insertval();
                        sessionStorage.removeItem('cartcreateorder');
                 }
@@ -55,6 +60,7 @@ export class CreatepaymentComponent implements OnInit {
         else{
             if(sessionStorage.getItem('createorderresult')!=null){
                 this.paymentdetail = JSON.parse(sessionStorage.getItem('createorderresult'));
+                this.createreport();
                 this.insertval();
                 console.log("refresh");
             }
@@ -181,5 +187,45 @@ export class CreatepaymentComponent implements OnInit {
     gotopay(){
             this.router.navigate(['/payment']);
     } 
+        createreport() {
+        //console.log(this.orderdetail.customerId);
+        var nowreport = {
+            "masterOrderId": this.paymentdetail.masterOrderId,
+            "shippingAddress": this.paymentdetail.shippingAddress,
+            "billingAddress": this.paymentdetail.billingAddress,
+            "currencyCode": this.paymentdetail.currencyCode,
+            "customerEmailAddress": this.paymentdetail.customerEmailAddress,
+            "customerId": this.paymentdetail.customerId,
+            "customerName": this.paymentdetail.customerName,
+            "masterOrderNo": this.paymentdetail.masterOrderNo,
+            "orderDateTime": this.paymentdetail.orderDateTime,
+            "status": this.paymentdetail.status,
+            "isMediaOrder": this.paymentdetail.isMediaOrder,
+            "masterOrderSubTotal": this.paymentdetail.masterOrderSubTotal,
+            "masterOrderTotal": this.paymentdetail.masterOrderTotal,
+            "masterOrderTotalDiscount": this.paymentdetail.masterOrderTotalDiscount,
+            "masterOrderTotalShipping": this.paymentdetail.masterOrderTotalShipping,
+            "masterOrderTotalVat": this.paymentdetail.masterOrderTotalShipping,
+            "masterOrderTotalAmount": this.paymentdetail.masterOrderTotalAmount,
+            "createDateTime": this.paymentdetail.createDateTime,
+            "updateDateTime": this.paymentdetail.updateDateTime,
+            "shippingAddressId": this.paymentdetail.shippingAddressId,
+            "paymentStatus": this.paymentdetail.orderPayment.paymentStatus,
+            "time": new Date().getDate() + "-" + (new Date().getMonth() + 1) + "-" + new Date().getFullYear() + "-" + new Date().getHours() + "-" + new Date().getMinutes() + "-" + new Date().getSeconds(),
+        }
+        var dup =true;
+        for(var i = 0,len = this.dayreport.length;i<len;i++){
+            if(this.dayreport[i].masterOrderId==nowreport.masterOrderId){
+                console.log(nowreport.masterOrderId);
+                this.dayreport[i] = nowreport;
+                dup =false;
+            }
+        }
+        if(dup){
+            console.log(this.paymentdetail.masterOrderId+"new");
+            this.dayreport.push(nowreport);
+        }
+        localStorage.setItem('offlinereport', JSON.stringify(this.dayreport));
+    }
 
 }
