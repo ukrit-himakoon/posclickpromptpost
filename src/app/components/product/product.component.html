@@ -11,26 +11,36 @@
                     <div class="col-md-6 ">
                         <h2 class="mt-2 mb-3">{{product?.name}}</h2>
                         <div *ngIf="product.rProductDetails?.length > 1" class="row">
-                            <h3 class="mb-5" class="color-red">{{product?.defaultPrice | number: '1.2-2'}} + {{sprice| number: '1.2-2'}} = {{product?.defaultPrice+sprice | number: '1.2-2'}}฿</h3>
+                            <h3 class="mb-5" class="color-red">{{product?.defaultPrice | number: '1.2-2'}} + {{sprice| number: '1.2-2'}} = {{product?.defaultPrice+sprice
+                                | number: '1.2-2'}}฿</h3>
                         </div>
                         <div *ngIf="product.rProductDetails?.length == 1" class="row">
                             <h3 class="mb-5" class="color-red">{{product?.defaultPrice+sprice | number: '1.2-2'}}฿</h3>
                         </div>
                         <div>Description:</div>
                         <p class="mb-4">{{product?.description}}</p>
-                        <div *ngIf="product.rProductDetails?.length > 1" class="row">
+                        <div *ngIf="product.rProductDetails?.length > 1">
                             <!--<div *ngFor="let d of product.rProductDetails" (click)="selectOption(d)">
                                 <p>{{d.productDetailOptionAndValueList[0].productOptionValueBean.code}}&nbsp;&nbsp;&nbsp;&nbsp;</p>
                             </div>
                             <p>({{sop}})</p>-->
-                            <p>Color :&nbsp;&nbsp;</p>
-                            <div>
-                            <select [(ngModel)]="selp" #t (change)="selectOption1()"  style="width:100px">
-                                <option *ngFor="let d of product.rProductDetails" [ngValue]="d" style=" background-color: getcolor(d) ">{{d.productDetailOptionAndValueList[0].productOptionValueBean.code}}</option>
-                            </select>
+                            <!--<input readonly style.background-color="{{colors}}">-->
+                            <div class="row">
+                                <p>Color :&nbsp;&nbsp;</p>
+                                <div>
+                                    <select [(ngModel)]="selp" #t (change)="selectOption1()" style="width:100px" style.background-color="{{getColor(selp)}}">
+                                        <option *ngFor="let d of product.rProductDetails" [ngValue]="d" style.background-color="{{getColor(d)}}">
+                                            <!--<p>{{d.productDetailOptionAndValueList[0].productOptionValueBean.code}}</p>-->
+                                        </option>
+                                    </select>
+                                </div>
+                                <div>
+                                    &nbsp;&nbsp;
+                                   <!--<input readonly style.background-color="{{colors}}"> -->
+                                </div>
+                                <!--<input readonly style.background-color="{{colors}}">-->
+                                <br/>
                             </div>
-                            <br/>
-
                         </div>
                         <div class="d-flex flex-row mb-3 v-center">
                             <div class="pr-3">Qty:</div>
@@ -46,7 +56,7 @@
             </div>
         </div>
     </div>
-  <!--  <iframe src="http://27.254.138.113:8112/FilmandEntertainment/11111111000000001111000000003815"></iframe>
+    <!--  <iframe src="http://27.254.138.113:8112/FilmandEntertainment/11111111000000001111000000003815"></iframe>
     <iframe src="http://27.254.138.113:8114/VODS/1014_0050000011.m3u8?Fsv_filetype=1&Fsv_cid=1014&Fsv_FirstSegID=50000011&Provider_id=FilmandEntertainment&Pcontent_id=11111111000000001111000000003815&Fsv_CMSID=FilmandEntertainment&Fsv_otype=0&FvSeid=58108a2a475cabd3&UserID=&AuthInfo=&version="></iframe>
     <video width="352" height="198" controls>
         <source src="http://27.254.138.113:8112/FilmandEntertainment/11111111000000001111000000003815" type="application/x-mpegURL">
@@ -61,4 +71,3 @@
         <source src="http://27.254.138.113:8114/VODS/1014_0030000011.m3u8?Fsv_filetype=1&Fsv_cid=1014&Fsv_FirstSegID=30000011&Provider_id=FilmandEntertainment&Pcontent_id=11111111000000001111000000003815&Fsv_CMSID=FilmandEntertainment&Fsv_otype=0&FvSeid=5810b7c6d0794bf3&UserID=&AuthInfo=&version=&_fwobw=1000000&_fwtbw=600000" type="application/x-mpegURL">
     </video>-->
 </div>
-
