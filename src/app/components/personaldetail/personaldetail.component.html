@@ -76,7 +76,7 @@
         <label>E-mail</label>
         <input class="form-control" #emails>
     </div>
-    <textarea readonly rows="4" cols="50" class="form-control" #shipaddresss value="{{textresult}}"></textarea><br/>
+    <textarea readonly rows="1" cols="50" class="form-control" style="color: red" #errorresultt value="{{textresult}}"></textarea><br/>
     <div class="text-center">
         <button type="button" (click)="generateText(fnames.value,lnames.value,addresses.value,araes.value,citys.value,states.value,countries.value,zips.value,telephones.value,faxes.value,emails.value)"
             class="btn btn-secondary">Enter</button>

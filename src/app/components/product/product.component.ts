@@ -56,7 +56,8 @@ export class ProductComponent implements OnInit {
             }
             return this.product.images[0].imgPath;
         }
-        return "https://benetis.me/images/2017/02/Screen-Shot-2017-02-11-at-15.02.26.png";
+        //return "https://benetis.me/images/2017/02/Screen-Shot-2017-02-11-at-15.02.26.png";
+        return "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg";
 
     }
 

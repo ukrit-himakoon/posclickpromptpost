@@ -53,7 +53,8 @@ export class HomecategoryComponent implements OnInit {
         //console.log("gogo");
         if (pic == null) {
             //pic="http://www.john-james-andersen.com/wp-content/uploads/nullimage1.gif"
-            pic = "https://benetis.me/images/2017/02/Screen-Shot-2017-02-11-at-15.02.26.png";
+            //pic = "https://benetis.me/images/2017/02/Screen-Shot-2017-02-11-at-15.02.26.png";
+            pic = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg";
         }
         return pic;
 
