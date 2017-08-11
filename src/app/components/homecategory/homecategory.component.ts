@@ -93,6 +93,12 @@ export class HomecategoryComponent implements OnInit {
                 }
             });
     }
+    checkoptionprice(p:any){
+        if(p.rProductDetails==undefined){
+            return 0;
+        }
+        return p.rProductDetails[0].optionPrice;
+    }
     openproduct(e: any, id: any) {
         if (e.target.tagName != 'BUTTON') {
             this.router.navigate(['/product', id]);

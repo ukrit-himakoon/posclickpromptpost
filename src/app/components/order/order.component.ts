@@ -89,7 +89,7 @@ export class OrderComponent implements OnInit {
                         ] 
                     } */
         ];
-        var j = 0;
+        /*var j = 0, len = 0;
         for (j = 0, len = this.products.length; j < len; j++) {
             //console.log(this.products[j].merchantId+"!"+j+"!!"+len);
             //console.log(this.products[j].merchantId);
@@ -131,11 +131,37 @@ export class OrderComponent implements OnInit {
                     ]
                 });
             }
-        }
+        }*/
         //console.log("!"+j+"!!");
-        for (var i = 0, len = orederist.length; i < len; i++) {
-            //console.log(orederist[i].merchantId);
+        //for (var i = 0, len = orederist.length; i < len; i++) {
+        //console.log(orederist[i].merchantId);
+        //}
+        var j = 0, len = 0;
+        for (j = 0, len = this.groupproduct.length; j < len; j++) {
+            var b = true;
+            for (var i = 0, len1 = orederist.length; i < len1; i++) {
+                if (this.groupproduct[j].merchantId == orederist[i].merchantId) {
+                    b = false;
+                    orederist[i].orderItemList.push(
+                        {
+                            "quantity": this.groupproduct[j].qt,
+                            "sku": this.groupproduct[j].sku
+                        });
+                }
+            }
+            if (b) {
+                orederist.push({
+                    "merchantId": this.groupproduct[j].merchantId,
+                    "orderItemList": [
+                        {
+                            "quantity": this.groupproduct[j].qt,
+                            "sku": this.groupproduct[j].sku
+                        }
+                    ]
+                });
+            }
         }
+
         orders.data['orderList'] = orederist;
         sessionStorage.setItem('cartorder', JSON.stringify(orders));
     }
@@ -164,7 +190,7 @@ export class OrderComponent implements OnInit {
         //location.reload();
         this.refreshpage();
     }
-        deletesku(c: any) {
+    deletesku(c: any) {
         //console.log("any go");
         var id = c.sku;
         console.log(id);
@@ -183,7 +209,7 @@ export class OrderComponent implements OnInit {
         this.refreshpage();
     }
     removeitem(c: any) {
-        if(c.qt>1){
+        if (c.qt > 1) {
             this.delete(c);
         }
     }

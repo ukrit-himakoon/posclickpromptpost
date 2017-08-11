@@ -6,7 +6,8 @@
                     <img [src]="pressnullpic(c.thumbnailPath)" class="img-fluid" />
                 </div>
                 <h5 class="text-center mb-2">{{c.name}}</h5>
-                <h6 class="text-center mb-3 color-red"><b>{{c.defaultPrice | number: '1.2-2'}} ฿</b></h6>
+                <h6 class="text-center mb-3 color-red"><b>{{c.defaultPrice+ checkoptionprice(c) | number: '1.2-2'}} ฿</b></h6>
+                <h6 class="text-center mb-3">Color: {{c.rProductDetails?.length || 1}}</h6>
                 <button (click)="addproduct(c)" type="button" class="btn btn-secondary">Add to Cart</button>
             </div>
         </div>

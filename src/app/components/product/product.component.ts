@@ -86,7 +86,10 @@ export class ProductComponent implements OnInit {
         //  window.history.back();
     }
     increaseproduct() {
-        this.quantity++;
+        
+        if (this.quantity < 10) {
+            this.quantity++;
+        }
     }
     decreaseproduct() {
         if (this.quantity > 1) {
