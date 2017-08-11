@@ -25,8 +25,16 @@ export class PersonaldetailComponent implements OnInit {
     }
     generateText(f: string, l: string, ad: string, ar: string, ci: string, st: string, co: string, zi: string, tel: string, fa: string, e: string) {
         if (f && l && ad && ar && ci && st && co && zi && tel && fa && e) {
-            if (!this.numberFormat(tel) && !this.numberFormat(fa)) {
-                this.textresult = "Number is incorrect, please enter again ";
+            if (!this.numberFormat(zi)) {
+                this.textresult = "Zip code value is incorrect, please enter again ";
+                return;
+            }
+            if (!this.numberFormat(tel)) {
+                this.textresult = "Telephone value is incorrect, please enter again ";
+                return;
+            }
+            if (!this.numberFormat(fa)) {
+                this.textresult = "Fax value is incorrect, please enter again ";
                 return;
             }
             if (!this.mailFormat(e)) {
